@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Mirogram.Resources.StyleSet"
+                    xmlns:fa="http://schemas.fontawesome.io/icons/">
+
+    <Style TargetType="fa:FontAwesome">
+        <Setter Property="FontFamily" Value="{StaticResource FontAwesome}" />
+        <Setter Property="Foreground" Value="Red" />
+    </Style>
+    
+    
+</ResourceDictionary>

@@ -1,0 +1,53 @@
+﻿<Page x:Class="Mirogram.UI.Pages.Main.ConnectPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Mirogram.UI.Pages.Main"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      mc:Ignorable="d" x:Name="page" FontFamily="{StaticResource Sahel}" Background="{StaticResource SiriusTamed}"
+      
+      Title="ConnectPage">
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="page"
+                                     Storyboard.TargetProperty="Opacity"
+                                     From="0.5" Duration="0:0:0.5"
+                                     To="1" >
+                        <!--<DoubleAnimation.EasingFunction>
+                            <CircleEase  EasingMode="EaseIn" />
+                        </DoubleAnimation.EasingFunction>-->
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center"
+              Height="400" Width="700">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Center">
+                <fa:ImageAwesome x:Name="mirogramLogo" Height="100" Foreground="{StaticResource Instagram}" Icon="Telegram" />
+                <TextBlock TextAlignment="Center" FontSize="25" Foreground="{StaticResource Instagram}">آریوگرام</TextBlock>
+
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel FlowDirection="RightToLeft" Orientation="Horizontal">
+                    <fa:ImageAwesome Foreground="{StaticResource Instagram}" Margin="0 0 5 0" Height="16" Icon="CircleOutlineNotch" Spin="True" ></fa:ImageAwesome>
+                    <TextBlock Foreground="{StaticResource Instagram}">در حال اتصال...</TextBlock>
+                </StackPanel>
+            </StackPanel>
+            
+        </Grid>
+    </Grid>
+</Page>

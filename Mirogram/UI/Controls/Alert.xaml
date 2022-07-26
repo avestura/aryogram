@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="Mirogram.UI.Controls.Alert"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Mirogram.UI.Controls" FontFamily="{StaticResource Sahel}"
+             mc:Ignorable="d" x:Name="control"
+             d:DesignHeight="30" d:DesignWidth="300">
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="control"
+                                     Storyboard.TargetProperty="Opacity"
+                                     From="0" Duration="0:0:0.3"
+                                     To="1" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <Border BorderBrush="#FF4B4600" BorderThickness="0 0 3 0">
+        <Border.Background>
+            <SolidColorBrush Color="#CCFFF0B8" />
+        </Border.Background>
+        <Grid FlowDirection="RightToLeft">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF4B4600" Grid.Column="0" Text="{Binding ElementName=control,Path=Text}" Margin="5 0" />
+            <Border MouseDown="Border_MouseDown" Background="Transparent"  Grid.Column="1">
+                <Path Data="M0,0L11,11M0,11L11,0" VerticalAlignment="Center" StrokeThickness="1" Margin="5 0" Stroke="#FF4B4600" />
+            </Border>
+        </Grid>
+    </Border>
+    
+</UserControl>

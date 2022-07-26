@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirogram", "Mirogram\Mirogram.csproj", "{BA0D5D0D-7FA6-4B05-8CFF-29E46D93081A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MirogramServer", "MirogramServer\MirogramServer.csproj", "{BDC87C19-5D50-4BD2-9415-E205BABDD891}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA0D5D0D-7FA6-4B05-8CFF-29E46D93081A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA0D5D0D-7FA6-4B05-8CFF-29E46D93081A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA0D5D0D-7FA6-4B05-8CFF-29E46D93081A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA0D5D0D-7FA6-4B05-8CFF-29E46D93081A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDC87C19-5D50-4BD2-9415-E205BABDD891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDC87C19-5D50-4BD2-9415-E205BABDD891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDC87C19-5D50-4BD2-9415-E205BABDD891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDC87C19-5D50-4BD2-9415-E205BABDD891}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

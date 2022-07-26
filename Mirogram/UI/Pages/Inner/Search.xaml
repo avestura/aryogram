@@ -1,0 +1,102 @@
+﻿<Page x:Class="Mirogram.UI.Pages.Inner.Search"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      xmlns:controls="clr-namespace:Mirogram.UI.Controls"
+      xmlns:local="clr-namespace:Mirogram.UI.Pages.Inner"
+      mc:Ignorable="d" FontFamily="{StaticResource Sahel}" Background="{StaticResource SiriusTamed}"
+      d:DesignHeight="500" d:DesignWidth="800" x:Name="page"
+      Title="Search">
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="page"
+                                     Storyboard.TargetProperty="Opacity"
+                                     From="0.3" Duration="0:0:0.5"
+                                     To="1" >
+                        <!--<DoubleAnimation.EasingFunction>
+                            <CircleEase  EasingMode="EaseIn" />
+                        </DoubleAnimation.EasingFunction>-->
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
+    <ScrollViewer Margin="10" FlowDirection="RightToLeft" Template="{StaticResource FantasyScrollViewer}" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <StackPanel>
+                    <Border BorderThickness="0 0 0 1" BorderBrush="{StaticResource Ash}">
+                        <StackPanel Orientation="Horizontal" Height="40">
+                            <fa:ImageAwesome Foreground="{StaticResource Ash}" Icon="UserPlus" Margin="10" />
+                            <TextBlock VerticalAlignment="Center" Foreground="{StaticResource Ash}">درخواست دوستی با شماره همراه</TextBlock>
+                        </StackPanel>
+                    </Border>
+                    <controls:Alert x:Name="alert" Height="30" Margin="10" FlowDirection="LeftToRight" Visibility="Collapsed" />
+                    <Grid Margin="10" Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Width="281" Grid.Column="0" Foreground="#FF434343">تلفن همراه فرد مورد نظر را برای درخواست دوستی وارد کنید:</TextBlock>
+                        <TextBox Grid.Column="1" TextAlignment="Center" x:Name="UIReqByPhoneTextBox" Margin="5 0" Style="{StaticResource FantasyTextbox}"></TextBox>
+                        <Button Grid.Column="2" Style="{StaticResource FantasyButton}" Click="UIReqByPhoneButton_Click" x:Name="UIReqByPhoneButton" Content="درخواست" />
+
+                    </Grid>
+                    <Grid Margin="10" Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Width="281" Grid.Column="0" Foreground="#FF434343">نام کاربری فرد مورد نظر را برای درخواست دوستی وارد کنید:</TextBlock>
+                        <TextBox Grid.Column="1" TextAlignment="Center" x:Name="UIReqByNameTextBox" Margin="5 0" Style="{StaticResource FantasyTextbox}"></TextBox>
+                        <Button Grid.Column="2" Style="{StaticResource FantasyButton}" x:Name="UIReqByNameButton" Click="UIReqByNameButton_Click" Content="درخواست" />
+
+                    </Grid>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="0 10 0 0">
+
+                <StackPanel>
+                    <Border BorderBrush="{StaticResource Ash}" BorderThickness="0 0 0 1">
+                        <StackPanel Orientation="Horizontal" Height="40">
+                            <fa:ImageAwesome Foreground="{StaticResource Ash}" Icon="Search" Margin="10" />
+                            <TextBlock VerticalAlignment="Center" Foreground="{StaticResource Ash}">جستجوی در جامعه دوستان</TextBlock>
+                        </StackPanel>
+                    </Border>
+
+                    <Grid Margin="10" Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Foreground="#FF434343">عمق جستجو در شبکه دوستان را در جعبه متنی روبه‌رو را وارد کنید: </TextBlock>
+                        <TextBox Grid.Column="1" TextAlignment="Center" Margin="5 0" Style="{StaticResource FantasyTextbox}"></TextBox>
+                        <Button Grid.Column="2" Style="{StaticResource FantasyButton}" Content="جستجو" />
+
+                    </Grid>
+                    <Grid Grid.Row="2" x:Name="UISearchItemsHolder">
+                        
+                    </Grid>
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+    </ScrollViewer>
+</Page>

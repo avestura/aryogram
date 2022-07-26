@@ -1,0 +1,79 @@
+﻿<Page x:Class="Mirogram.UI.Pages.Inner.FriendRequests"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      xmlns:controls="clr-namespace:Mirogram.UI.Controls"
+      xmlns:local="clr-namespace:Mirogram.UI.Pages.Inner"
+      xmlns:father="clr-namespace:Mirogram" Loaded="page_Loaded"
+      mc:Ignorable="d" Background="{StaticResource SiriusTamed}"
+      d:DesignHeight="500" d:DesignWidth="800" x:Name="page"
+      Title="FriendRequests" FontFamily="{StaticResource Sahel}">
+    <Page.Resources>
+        <father:StackPanelToVisibilityConverter x:Key="converter" />
+    </Page.Resources>
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="page"
+                                     Storyboard.TargetProperty="Opacity"
+                                     From="0.3" Duration="0:0:0.5"
+                                     To="1" >
+                        <!--<DoubleAnimation.EasingFunction>
+                            <CircleEase  EasingMode="EaseIn" />
+                        </DoubleAnimation.EasingFunction>-->
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
+    <ScrollViewer Margin="10" FlowDirection="RightToLeft" Template="{StaticResource FantasyScrollViewer}" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <StackPanel>
+                    <Border BorderThickness="0 0 0 1" BorderBrush="{StaticResource Ash}">
+                        <StackPanel Orientation="Horizontal" Height="40">
+                            <fa:ImageAwesome Foreground="{StaticResource Ash}" Icon="UserPlus" Margin="10" />
+                            <TextBlock VerticalAlignment="Center" Foreground="{StaticResource Ash}">درخواست های دوستی دریافتی</TextBlock>
+                        </StackPanel>
+                    </Border>
+
+                    <StackPanel Grid.Row="1" x:Name="UIRequestItemsHolder">
+                        
+                    </StackPanel>
+                    <TextBlock Foreground="#FF434343" HorizontalAlignment="Center"
+                                   Margin="5" Visibility="{Binding ElementName=UIRequestItemsHolder, Converter={StaticResource converter}}">تا کنون درخواست دوستی دریافت نشده است</TextBlock>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="0 10 0 0">
+
+                <StackPanel>
+                    <Border BorderBrush="{StaticResource Ash}" BorderThickness="0 0 0 1"> 
+                        <StackPanel Orientation="Horizontal" Height="40">
+                            <fa:ImageAwesome Foreground="{StaticResource Ash}" Icon="Group" Margin="10" />
+                            <TextBlock VerticalAlignment="Center" Foreground="{StaticResource Ash}">دوستان</TextBlock>
+                        </StackPanel>
+                    </Border>
+
+                    <StackPanel Grid.Row="1" x:Name="UIFriendsHolder">
+                    </StackPanel>
+                    <TextBlock Foreground="#FF434343" HorizontalAlignment="Center"
+                                   Margin="5" Visibility="{Binding ElementName=UIFriendsHolder, Converter={StaticResource converter}}">تا کنون درخواست دوستی دریافت نشده است</TextBlock>
+
+
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+    </ScrollViewer>
+
+</Page>

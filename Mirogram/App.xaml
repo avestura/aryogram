@@ -1,0 +1,34 @@
+﻿<Application x:Class="Mirogram.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" LoadCompleted="Application_LoadCompleted"
+             xmlns:local="clr-namespace:Mirogram" ShutdownMode="OnMainWindowClose"
+             StartupUri="MainWindow.xaml" Startup="Application_Startup">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <!-- Fonts -->
+                <ResourceDictionary Source="pack://application:,,,/Mirogram;component/Resources/Fonts/Fonts.xaml" />
+                
+                <!-- Colors and Brushes -->
+                <ResourceDictionary Source="pack://application:,,,/Mirogram;component/Resources/Brushes/Gradients.xaml" />
+                
+                <!-- General Styles -->
+                <ResourceDictionary Source="pack://application:,,,/Mirogram;component/Resources/StyleSet/GeneralStyle.xaml" />
+
+                <!-- UI Templates --> 
+                <ResourceDictionary Source="pack://application:,,,/Mirogram;component/UI/Templates/ChromeButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Mirogram;component/UI/Templates/FantasyTextbox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Mirogram;component/UI/Templates/FantasyPasswordbox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Mirogram;component/UI/Templates/FantasyButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Mirogram;component/UI/Templates/FantasyScrollbar.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Mirogram;component/UI/Templates/FantasyScrollViewer.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Mirogram;component/UI/Templates/ChatLogoButtonTemplate.xaml" />
+
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+     
+    </Application.Resources>
+</Application>

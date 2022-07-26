@@ -1,0 +1,73 @@
+﻿<Page x:Class="Mirogram.UI.Pages.Inner.ChatArea"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:fa="http://schemas.fontawesome.io/icons/" Loaded="ChatAreaPage_Loaded"
+      xmlns:local="clr-namespace:Mirogram.UI.Pages.Inner" FontFamily="{StaticResource Sahel}"
+      mc:Ignorable="d"  Background="{StaticResource SiriusTamed}" 
+      d:DesignHeight="500" d:DesignWidth="800" x:Name="ChatAreaPage"
+      Title="ChatArea">
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="ChatAreaPage"
+                                     Storyboard.TargetProperty="Opacity"
+                                     From="0.3" Duration="0:0:0.5"
+                                     To="1" >
+                        <!--<DoubleAnimation.EasingFunction>
+                            <CircleEase  EasingMode="EaseIn" />
+                        </DoubleAnimation.EasingFunction>-->
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Border Background="WhiteSmoke" BorderThickness="0 0 0 2" BorderBrush="#FF909090" Grid.Row="0">
+            <Grid>
+
+                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                    <Border Width="40" Height="40" CornerRadius="100" Margin="10 0" Background="{StaticResource Ash}" >
+                        <fa:ImageAwesome VerticalAlignment="Center" HorizontalAlignment="Center" Icon="User" Margin="7" Foreground="{StaticResource Cloud}" />
+                    </Border>
+                    <TextBlock Foreground="{StaticResource Ash}" FontSize="17" VerticalAlignment="Center"
+                               Text="{Binding ElementName=ChatAreaPage,Path=UserChattingWith}"/>
+                    <TextBlock FlowDirection="RightToLeft" Margin="5 0" Foreground="{StaticResource ServQuick}" FontSize="13" VerticalAlignment="Center"
+                               Text="{Binding ElementName=ChatAreaPage,Path=PhoneNumberChattingWith}" />
+                </StackPanel>
+
+            </Grid>
+        </Border>
+
+        <StackPanel VerticalAlignment="Bottom" Grid.Row="1" Orientation="Vertical" x:Name="UIChatsPlace">
+            <!--<Border HorizontalAlignment="Left" Height="50" Width="320" Background="WhiteSmoke" />-->
+            <!--<Border HorizontalAlignment="Right" Height="50" Width="320" Background="WhiteSmoke" />-->
+        </StackPanel>
+
+        <Grid Grid.Row="2" Background="White" FlowDirection="RightToLeft">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0"
+                     x:Name="UIChatTextbox"
+                     Foreground="{StaticResource Ash}"
+                     FontSize="13"
+                     Margin="5 0"
+                     VerticalContentAlignment="Center"
+                     BorderThickness="0"></TextBox>
+            <Button Grid.Column="1" Style="{StaticResource FantasyButton}" x:Name="UIChatSendButton" IsDefault="True" Click="UIChatSendButton_Click">
+                <fa:ImageAwesome Foreground="{StaticResource Cloud}" Margin="10" Icon="ChevronLeft" RenderTransformOrigin="0.5,0.5" >
+                </fa:ImageAwesome>
+            </Button>
+        </Grid>
+
+    </Grid>
+</Page>

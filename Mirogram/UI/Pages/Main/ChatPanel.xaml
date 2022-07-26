@@ -1,0 +1,124 @@
+﻿<Page x:Class="Mirogram.UI.Pages.Main.ChatPanel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Mirogram.UI.Pages.Main"
+      xmlns:fa="http://schemas.fontawesome.io/icons/" x:Name="page"
+      xmlns:controls="clr-namespace:Mirogram.UI.Controls"
+      mc:Ignorable="d" Background="{StaticResource SiriusTamed}"
+      d:DesignHeight="600" d:DesignWidth="1000" FontFamily="{StaticResource Sahel}"
+      Title="ChatPanel" Loaded="page_Loaded">
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="page"
+                                     Storyboard.TargetProperty="Opacity"
+                                     From="0.3" Duration="0:0:0.5"
+                                     To="1" >
+                        <!--<DoubleAnimation.EasingFunction>
+                            <CircleEase  EasingMode="EaseIn" />
+                        </DoubleAnimation.EasingFunction>-->
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
+    <Grid FlowDirection="RightToLeft">
+        <!--#region Grid Column Definition-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" MaxWidth="400" MinWidth="200"/>
+            <ColumnDefinition Width="5*" />
+        </Grid.ColumnDefinitions>
+        <!--#endregion-->
+        <!--#region Chat Manager -->
+        <Grid Grid.Column="0" Background="{StaticResource Cloud}">
+            <!--#region Grid Row Definition -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="180" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <!--#endregion-->
+            <!--#region User Area-->
+            <Grid Grid.Row="0" Background="{StaticResource Inbox}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" VerticalAlignment="Center">
+                    <Border Width="70" Height="70" CornerRadius="100" Background="{StaticResource Ash}">
+                        <fa:ImageAwesome Foreground="{StaticResource Portrait}" Height="40" Icon="User" />
+                    </Border>
+                    <TextBlock HorizontalAlignment="Center" Foreground="{StaticResource Cloud}"
+                               x:Name="usernameAlias" FontSize="12" Margin="0 5 0 0">نام کاربر</TextBlock>
+                </StackPanel>
+                <Grid Grid.Row="1" FlowDirection="LeftToRight">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="logOutButton" Click="logOutButton_Click"
+                            Grid.Column="0" Style="{StaticResource ButtonStyle1}" BorderThickness="0"
+                            ToolTip="خروج از حساب">
+                        <fa:ImageAwesome Margin="12" Icon="SignOut" Foreground="{StaticResource Cloud}" />
+                    </Button>
+                    <Button x:Name="searchButton" Grid.Column="1" Click="searchButton_Click"
+                            Style="{StaticResource ButtonStyle1}" BorderThickness="0"
+                            ToolTip="جستجوی کاربران">
+                        <fa:ImageAwesome Margin="12" Icon="Search" Foreground="{StaticResource Cloud}" />
+                    </Button>
+                    <Button x:Name="friendsButton" Grid.Column="2" Style="{StaticResource ButtonStyle1}" BorderThickness="0"
+                            Click="friendsButton_Click">
+                        <fa:ImageAwesome Margin="12" Icon="AddressBook" Foreground="{StaticResource Cloud}" />
+                    </Button>
+                    <Button x:Name="notificationButton" Grid.Column="3" Click="notificationButton_Click"
+                            Style="{StaticResource ButtonStyle1}" BorderThickness="0"
+                            ToolTip="اعلان ها">
+                        <fa:ImageAwesome Margin="12" Icon="Refresh" Foreground="{StaticResource Cloud}"/>
+                    </Button>
+               
+                    
+                </Grid>
+         
+            </Grid>
+            <!--#endregion-->
+            <Grid Grid.Row="1">
+                <ScrollViewer Template="{StaticResource FantasyScrollViewer}" HorizontalScrollBarVisibility="Disabled"
+                              VerticalScrollBarVisibility="Auto">
+                    <StackPanel x:Name="UIChatWithFriendHolder">
+                        <controls:ChatLogoButton x:Name="resetRadio" IsEnabled="False" Height="0" />
+                        <!--<controls:ChatLogoButton Height="50" Content="آرین - 09388788448" Style="{DynamicResource ChatLogoButtonFantasy}"  />
+                        <controls:ChatLogoButton Height="50" Content="آرین - 09388788448" Style="{DynamicResource ChatLogoButtonFantasy}"  />
+                        <controls:ChatLogoButton Height="50" Content="آرین - 09388788448" Style="{DynamicResource ChatLogoButtonFantasy}"  />
+                        <controls:ChatLogoButton Height="50" Content="آرین - 09388788448" Style="{DynamicResource ChatLogoButtonFantasy}"  />
+                        <controls:ChatLogoButton Height="50" Content="آرین - 09388788448" Style="{DynamicResource ChatLogoButtonFantasy}"  />
+                        <controls:ChatLogoButton Height="50" Content="آرین - 09388788448" Style="{DynamicResource ChatLogoButtonFantasy}"  />
+                        <controls:ChatLogoButton Height="50" Content="آرین - 09388788448" Style="{DynamicResource ChatLogoButtonFantasy}"  />
+                        <controls:ChatLogoButton Height="50" Content="آرین - 09388788448" Style="{DynamicResource ChatLogoButtonFantasy}"  />-->
+                        
+
+                    </StackPanel>
+                </ScrollViewer>
+
+            </Grid>
+        </Grid>
+        <!--#endregion-->
+        <GridSplitter Width="1" Background="{StaticResource Cloud}" />
+        <!--#region Chat Messages -->
+        <Grid Grid.Column="1">
+            <Grid x:Name="chatStartLogo">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <fa:ImageAwesome Height="80" Icon="Comments" Foreground="{StaticResource Ash}" />
+                    <TextBlock FontSize="15" Margin="0 10 0 0" Foreground="{StaticResource Ash}">گفت و گویی را آغاز کنید</TextBlock>
+                </StackPanel>
+            </Grid>
+            <Frame x:Name="chatPanelFrame" NavigationUIVisibility="Hidden" />
+            
+        </Grid>
+        <!--#endregion-->
+    </Grid>
+</Page>

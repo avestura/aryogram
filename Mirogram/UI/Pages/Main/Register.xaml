@@ -1,0 +1,76 @@
+﻿<Page x:Class="Mirogram.UI.Pages.Main.Register"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      xmlns:local="clr-namespace:Mirogram.UI.Pages.Main" x:Name="page" 
+      xmlns:controls="clr-namespace:Mirogram.UI.Controls"
+      xmlns:th="clr-namespace:Mirogram.UI.Controls.TagHolderControl" 
+      mc:Ignorable="d"  FontFamily="{StaticResource Sahel}" Background="{StaticResource SiriusTamed}"
+      Title="Register">
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="page"
+                                     Storyboard.TargetProperty="Opacity"
+                                     From="0.5" Duration="0:0:0.5"
+                                     To="1" >
+                        <!--<DoubleAnimation.EasingFunction>
+                            <CircleEase  EasingMode="EaseIn" />
+                        </DoubleAnimation.EasingFunction>-->
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
+
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center"
+              Height="Auto" Width="700">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Center">
+                <fa:ImageAwesome x:Name="mirogramLogo" Height="100" Foreground="{StaticResource Instagram}" Icon="Telegram" />
+                <TextBlock TextAlignment="Center" FontSize="25" Foreground="{StaticResource Instagram}">ثبت کاربر جدید در آریوگرام</TextBlock>
+
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StackPanel FlowDirection="RightToLeft" HorizontalAlignment="Center" Margin="0 30 0 30">
+                <controls:Alert Height="30" Visibility="Collapsed" Margin="0 0 0 10" x:Name="alert" Text="کاربری با همین نام در لیست کابران حضور دارد" FlowDirection="LeftToRight" />
+                <StackPanel Margin="0 0 0 2" Orientation="Horizontal">
+                    <fa:ImageAwesome Foreground="{StaticResource Instagram}" Margin="5 0" Height="20" Icon="User" />
+                    <TextBlock Foreground="{StaticResource Instagram}">نام کاربری</TextBlock>
+                </StackPanel>
+                <TextBox x:Name="usernameTextbox" Height="30" Width="300" Style="{DynamicResource FantasyTextbox}" />
+                <StackPanel Margin="0 6 0 2" Orientation="Horizontal">
+                    <fa:ImageAwesome Foreground="{StaticResource Instagram}" Margin="5 0" Height="20" Icon="Lock" />
+                    <TextBlock Foreground="{StaticResource Instagram}">کلمه عبور</TextBlock>
+                </StackPanel>
+                <PasswordBox x:Name="passwordTextbox" Height="30" Width="300" Style="{DynamicResource FantasyPasswordbox}"   />
+                <StackPanel Margin="0 6 0 2" Orientation="Horizontal">
+                    <fa:ImageAwesome Foreground="{StaticResource Instagram}" Margin="5 0" Height="20" Icon="Mobile" />
+                    <TextBlock Foreground="{StaticResource Instagram}">
+                        شماره های همراه
+                        <Run Foreground="Gray" FontSize="10">(با فاصله جدا شود)</Run>
+                    </TextBlock>
+                </StackPanel>
+                <th:TagHolder x:Name="phoneNumbers" Width="300" FlowDirection="RightToLeft" TagFormat="Number" MinHeight="30" />
+                <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" Margin="0 10 0 0" HorizontalAlignment="Right">
+                    <Button Width="80" x:Name="loginButton" Click="loginButton_Click" IsDefault="True"
+                        Padding="3" Content="ثبت نام" Style="{DynamicResource FantasyButton}" />
+                    <Button Margin="5 0" Width="Auto" x:Name="signupButton"
+                        Padding="6 0" Content="ورود با حساب کاربری موجود" Click="signupButton_Click" Style="{DynamicResource FantasyButton}"  />
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+
+</Page>

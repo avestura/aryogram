@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ServerDataModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=E:\Project\C#\Mirogram\MirogramServer\bin\Debug\ServerData.db;page size=1024;cache size=2000" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ChatLists">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="WithUser" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="WithNumber" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FriendRequests">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FromUser" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="ToUser" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Content" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="FromUserID" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="ToUserID" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="TimeSent" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="InReplyTo" Type="integer" />
+          <Property Name="FromNumber" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="ToNumber" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Phones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Friends" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="LastOnline" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityContainer Name="ServerDataModelStoreContainer">
+          <EntitySet Name="ChatLists" EntityType="Self.ChatLists" store:Type="Tables" />
+          <EntitySet Name="FriendRequests" EntityType="Self.FriendRequests" store:Type="Tables" />
+          <EntitySet Name="Messages" EntityType="Self.Messages" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ServerDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FromUserID" Type="String" Nullable="false" />
+          <Property Name="ToUserID" Type="String" Nullable="false" />
+          <Property Name="TimeSent" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InReplyTo" Type="Int64" />
+          <Property Name="FromNumber" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ToNumber" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phones" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Friends" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="LastOnline" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="ServerDataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Messages" EntityType="Self.Messages" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="FriendRequests" EntityType="ServerDataModel.FriendRequests" />
+          <EntitySet Name="ChatLists" EntityType="ServerDataModel.ChatLists" />
+        </EntityContainer>
+        <EntityType Name="FriendRequests">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FromUser" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="ToUser" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ChatLists">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="WithNumber" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="WithUser" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ServerDataModelStoreContainer" CdmEntityContainer="ServerDataEntities">
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="ServerDataModel.Messages">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="FromUserID" ColumnName="FromUserID" />
+                <ScalarProperty Name="ToUserID" ColumnName="ToUserID" />
+                <ScalarProperty Name="TimeSent" ColumnName="TimeSent" />
+                <ScalarProperty Name="InReplyTo" ColumnName="InReplyTo" />
+                <ScalarProperty Name="FromNumber" ColumnName="FromNumber" />
+                <ScalarProperty Name="ToNumber" ColumnName="ToNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ServerDataModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="LastOnline" ColumnName="LastOnline" />
+                <ScalarProperty Name="Friends" ColumnName="Friends" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Phones" ColumnName="Phones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FriendRequests">
+            <EntityTypeMapping TypeName="ServerDataModel.FriendRequests">
+              <MappingFragment StoreEntitySet="FriendRequests">
+                <ScalarProperty Name="ToUser" ColumnName="ToUser" />
+                <ScalarProperty Name="FromUser" ColumnName="FromUser" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChatLists">
+            <EntityTypeMapping TypeName="ServerDataModel.ChatLists">
+              <MappingFragment StoreEntitySet="ChatLists">
+                <ScalarProperty Name="WithUser" ColumnName="WithUser" />
+                <ScalarProperty Name="WithNumber" ColumnName="WithNumber" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
